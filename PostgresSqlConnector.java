@@ -20,7 +20,7 @@ public class PostgresSqlConnector {
 
 	}
 
-	public void executeQuery() throws SQLException {
+	public void listDatabases() throws SQLException {
 		Connection myConn = null;
 		Statement myStmt = null;
 		ResultSet myRs = null;
@@ -32,12 +32,12 @@ public class PostgresSqlConnector {
 
 			myStmt = myConn.createStatement();
 
-			String query = "SELECT * FROM Animals";
+			String query = "SELECT datname FROM pg_database;";
 
 			myRs = myStmt.executeQuery(query);
 
 			while (myRs.next()) {
-				System.out.println("Name: " + myRs.getString("animal_name"));
+				System.out.println("Database name: " + myRs.getString("datname"));
 			}
 		} catch (Exception e) {
 
