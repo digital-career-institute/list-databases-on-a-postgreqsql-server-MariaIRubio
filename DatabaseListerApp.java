@@ -12,7 +12,7 @@ public class DatabaseListerApp {
 		
 		PostgresSqlConnector connector = new PostgresSqlConnector(url, username, password);
 		
-		connector.executeQuery();
+		connector.listDatabases();
 	}
 
 }
